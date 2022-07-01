@@ -1,6 +1,7 @@
 import os, sys
 import pandas as pd
 import numpy as np
+import time
 
 def run_bash_script(script):
     with open("running", "w") as fout:
@@ -42,3 +43,6 @@ for f in f_init:
 
 output_dat = pd.DataFrame({'f_init':f_init,'rho_smg':rho_smg,'p_smg':p_smg,'wanted_value':wanted,'c':par_c})
 output_dat.to_csv('gravity_models/output/output_data.csv',index=False)
+
+stop = time.time()
+print("Running duration: ", stop-start, " seconds.")
