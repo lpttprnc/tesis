@@ -44,7 +44,7 @@ for f in f_init:
         wanted.append("NaN") #Omega smg wanted
         par_c.append("NaN")
 
-output_dat = pd.DataFrame({'f_init':f_init,'rho_smg':rho_smg,'p_smg':p_smg,'wanted_value':wanted,'c':par_c}) #CEK ADA 5
+output_dat = pd.DataFrame({'f_init':f_init,'rho_smg':rho_smg,'p_smg':p_smg,'phi_0':phi_smg,'wanted_value':wanted,'c':par_c}) #CEK ADA 5
 output_dat.to_csv('gravity_models/output/output_data.csv',index=False) #CEK DIRECTORY
 
 stop = time.time()
