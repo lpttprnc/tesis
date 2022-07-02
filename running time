@@ -19,7 +19,7 @@ pake server milkyway
 
 ngerun 1 terminal:
 a1p2n0 3548.9518852233887
-a1p2n5 458.54010009765625
+a1p2n5 458.54010009765625 (gak pake perturbasi)
 
 a1p2n1 3716.9291689395905 (pake perturbasi lama)
 nyusul sambil di tengah running a1p2n1
@@ -28,3 +28,7 @@ a1p2n2 434.70231437683105 (gak pake perturbasi)
 ngerun 2 terminal:
 a1p2n3 464.36806058883667
 a1p2n4 402.4450078010559
+
+gak pake perturbasi
+a1p3n1 448.0368022918701
+a1p4n1 489.8155860900879
