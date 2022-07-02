@@ -1,13 +1,16 @@
 pake leptop bu hesti
 
 ngerun 3 terminal sekaligus:
-
 a1p0n1 25045.165593385696
 a1p0n1 25380.952881336212
 a1p2n1 23380.42442893982
 
-ngerun 1 terminal:
+tanpa hitung perturbasi
+a1p0n1 756.1136450767517
+a1p1n1 747.4729180335999
+a1p2n1 776.7788438796997
 
+ngerun 1 terminal:
 a1p3n1 6000an tapi lupa kopas berapa tepatnya
 a1p4n1 35229.609315395355 ini kayanya salah sih
 a1p5n1 6515.4910979270935
@@ -15,7 +18,6 @@ a1p5n1 6515.4910979270935
 pake server milkyway
 
 ngerun 1 terminal:
-
 a1p2n0 3548.9518852233887
 a1p2n5 458.54010009765625
 
