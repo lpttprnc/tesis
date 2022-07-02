@@ -1,0 +1,56 @@
+int output_background(
+                      struct background * pba,
+                      struct output * pop
+                      ) {
+
+  FILE * backfile;
+  FILE * parnfile; //stands for parameters nebeng, just for my needs to extract other parameters.
+  FileName file_name;
+
+  char titles[_MAXTITLESTRINGLENGTH_]={0};
+  double * data;
+  int size_data, number_of_titles;
+
+  class_call(background_output_titles(pba,titles),
+             pba->error_message,
+             pop->error_message);
+  number_of_titles = get_number_of_titles(titles);
+  size_data = number_of_titles*pba->bt_size;
+  class_alloc(data,sizeof(double)*size_data,pop->error_message);
+  class_call(background_output_data(pba,
+                                    number_of_titles,
+                                    data),
+             pba->error_message,
+             pop->error_message);
+
+  sprintf(file_name,"%s%s",pop->root,"background.dat");
+  class_open(backfile,file_name,"w",pop->error_message);
+
+  if (pop->write_header == _TRUE_) {
+    fprintf(backfile,"# Table of selected background quantities\n");
+    fprintf(backfile,"# All densities are multiplied by (8piG/3) (below, shortcut notation (.) for this factor) \n");
+    fprintf(backfile,"# Densities are in units [Mpc^-2] while all distances are in [Mpc]. \n");
+    if (pba->has_scf == _TRUE_){
+      fprintf(backfile,"# The units of phi, tau in the derivatives and the potential V are the following:\n");
+      fprintf(backfile,"# --> phi is given in units of the reduced Planck mass m_Pl = (8 pi G)^(-1/2)\n");
+      fprintf(backfile,"# --> tau in the derivative of V(phi) is given in units of Mpc.\n");
+      fprintf(backfile,"# --> the potential V(phi) is given in units of m_Pl^2/Mpc^2.\n");
+    }
+  }
+
+  output_print_data(backfile,
+                    titles,
+                    data,
+                    size_data);
+
+  /* few lines below are for my research only */
+  sprintf(file_name,"%s%s",pop->root,"nebengparameters.dat");
+  class_open(parnfile,file_name,"w",pop->error_message);
+  fprintf(parnfile,"# additional printed parameters or nebeng for short: Omega-wanted-de potential-parameter-c:\n");
+  fprintf(parnfile,"\t%f \t %g", pba->Omega0_smg, pba->parameters_smg[3]);
+  fclose(parnfile);
+  /* done (: */
+
+  return _SUCCESS_;
+
+}
