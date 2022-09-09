@@ -1,0 +1,79 @@
+#MASIH NGACO Y
+data.experiments=['Pantheon', 'WiggleZ_bao', 'eBOSS_DR14_Lya_combined', 'bao_boss', 'Planck_highl_TT']
+#BOSS_DR12_Lya_combined
+
+#[mean, min, max, 1-sigma (0 fix?), scale, role]
+#[0.05, 0, None, 0., 1, ’cosmo’]
+
+#phi prime initial
+data.parameters['parameters_smg__1'] = [1e-100, None, None, 0., 1, 'cosmo']
+#phi ini coba ganti ke 1-sigma 0.1, 0.01 ga konvergen
+data.parameters['parameters_smg__2'] = [1.401, 0, 3., 0.01, 1, 'cosmo']
+#par alpha
+data.parameters['parameters_smg__3'] = [1, 0, 10, 0.01, 1, 'cosmo']
+#par p
+data.parameters['parameters_smg__5'] = [2, 0, 10, 0.01, 1, 'cosmo']
+#par n
+data.parameters['parameters_smg__6'] = [1, 0, 10, 0.01, 1, 'cosmo']
+
+#par c^2
+data.parameters['parameters_smg__4'] = [0, 0, None, 0., 1, 'cosmo']
+#data.parameters['Omega_smg'] = [0, None, None, 0.1, 1, 'derived']
+
+#absolute mag, ngikut ricko dulu
+data.parameters['M'] = [-19.4, -19.6, -19.2, 0.01, 1, 'nuisance']
+
+#####################################nuisance cmb
+
+#cib_index  = -1.3
+data.parameters['A_cib_217']         = [    47.2,     0,   200,     6.2593,     1, 'nuisance']
+data.parameters['cib_index']         = [    -1.3,  -1.3,  -1.3,          0,     1, 'nuisance']
+data.parameters['xi_sz_cib']         = [    0.42,     0,     1,       0.33,     1, 'nuisance']
+data.parameters['A_sz']              = [    7.23,     0,    10,     1.4689,     1, 'nuisance']
+
+data.parameters['ps_A_100_100']      = [   251.0,     0,   400,     29.438,     1, 'nuisance']
+data.parameters['ps_A_143_143']      = [    47.4,     0,   400,     9.9484,     1, 'nuisance']
+data.parameters['ps_A_143_217']      = [    47.3,     0,   400,     11.356,     1, 'nuisance']
+data.parameters['ps_A_217_217']      = [   119.8,     0,   400,     10.256,     1, 'nuisance']
+data.parameters['ksz_norm']          = [    0.01,     0,    10,     2.7468,     1, 'nuisance']
+
+#gal545_A_100     = 8.6  ± 2
+data.parameters['gal545_A_100']      = [    8.6,     0,    50,     1.8928,     1, 'nuisance']
+#gal545_A_143     = 10.6 ± 2
+data.parameters['gal545_A_143']      = [   10.6,     0,    50,     1.8663,     1, 'nuisance']
+#gal545_A_143_217 = 23.5 ± 8.5
+data.parameters['gal545_A_143_217']  = [   23.5,     0,   100,     3.8796,     1, 'nuisance']
+#gal545_A_217     = 91.9 ± 20
+data.parameters['gal545_A_217']      = [   91.9,     0,   400,     6.9759,     1, 'nuisance']
+
+data.parameters['calib_100T']        = [  1000.2,     0,  3000,    0.61251, 0.001, 'nuisance']
+data.parameters['calib_217T']        = [  998.05,     0,  3000,    0.63584, 0.001, 'nuisance']
+data.parameters['A_sbpx_100_100_TT'] = [       1,     1,     1,          0,     1, 'nuisance']
+data.parameters['A_sbpx_143_143_TT'] = [       1,     1,     1,          0,     1, 'nuisance']
+data.parameters['A_sbpx_143_217_TT'] = [       1,     1,     1,          0,     1, 'nuisance']
+data.parameters['A_sbpx_217_217_TT'] = [       1,     1,     1,          0,     1, 'nuisance']
+data.parameters['A_planck']          = [ 1.00061,   0.9,   1.1,     0.0025,     1, 'nuisance']
+
+#best-fit from garcia-garcia
+#data.cosmo_arguments['omega_cdm'] = 0.1186
+#data.cosmo_arguments['H0'] = 68.3
+#data.cosmo_arguments['omega_b'] = 0.02224
+
+#cosmological parameters
+data.parameters['omega_cdm'] = [0.120, 0, 0.5, 0.0013, 1, 'cosmo']
+data.parameters['H0'] = [70, 50, 80, 0.1, 1, 'cosmo']
+data.parameters['omega_b'] = [0.02224, 0, 0.05, 0.015, 1, 'cosmo']
+
+#smg model
+data.cosmo_arguments['gravity_model'] = 'alpha_attractor_canonical'
+
+#requirements to determine smg
+data.cosmo_arguments['Omega_Lambda'] = 0
+data.cosmo_arguments['Omega_fld'] = 0
+data.cosmo_arguments['Omega_smg'] = -1
+
+#phi prime initial (is fix)
+#data.cosmo_arguments['parameters_smg__1'] = 1e-100
+
+data.N=10
+data.write_step=5
